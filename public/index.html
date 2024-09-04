@@ -23,7 +23,40 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-    <script src="./Hyphenopoly_Loader.js"></script>
+    <!-- <script src="./Hyphenopoly_Loader.js"></script> -->
+    <script src="./min/Hyphenopoly_Loader.js"></script>
+    <script>
+      Hyphenopoly.config({
+          // require: {
+          //     "en-us": "FORCEHYPHENOPOLY"
+          // },
+          // paths: {
+          //     maindir: "./hyphenopoly/",
+          //     patterndir: "./hyphenopoly/patterns/"
+          // },
+          // setup: {
+          //     selectors: {
+          //         ".hyphenate": {
+          //             hyphen: "•"
+          //         }
+          //     }
+          // }
+          require: {
+            "en-us": "FORCEHYPHENOPOLY"
+          },
+          paths: {
+              maindir: "./",
+              patterndir: "./patterns/"
+          },
+          setup: {
+            selectors: {
+              ".hyphenate": {
+                hyphen: "•"
+              }
+            }
+          },
+      });
+  </script>
   </head>
 
   <body>
