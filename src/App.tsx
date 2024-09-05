@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
+import { hyphenator } from "./hyphenopoly";
 
 export default function App() {
   const [hyphenatedTextEn, setHyphenatedTextEn] = useState("");
   const [hyphenatedTextDe, setHyphenatedTextDe] = useState("");
 
   useEffect(() => {
-    const hyphenator = (window as any).Hyphenopoly
-
     async function hyphenateTexts() {
 
-      const hyphenateEn = await hyphenator.hyphenators["en-us"]
-      const hyphenateDe = await hyphenator.hyphenators["de"]
+      const hyphenateEn = await hyphenator.get("en-us");
+      const hyphenateDe = await hyphenator.get("de");
 
       setHyphenatedTextEn(hyphenateEn("hyphenation enhances justification."));
       setHyphenatedTextDe(
@@ -30,3 +29,6 @@ export default function App() {
     </div>
   );
 }
+
+
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
