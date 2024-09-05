@@ -8,13 +8,12 @@ export default function App() {
 
   useEffect(() => {
     async function hyphenateTexts() {
-
       const hyphenateEn = await hyphenator.get("en-us");
       const hyphenateDe = await hyphenator.get("de");
 
       setHyphenatedTextEn(hyphenateEn("hyphenation enhances justification."));
       setHyphenatedTextDe(
-        hyphenateDe("Silbentrennung verbessert den Blocksatz.")
+        hyphenateDe("Silbentrennung verbessert den Blocksatz."),
       );
     }
 
@@ -30,5 +29,4 @@ export default function App() {
   );
 }
 
-
-const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
